@@ -1,0 +1,188 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DbOrdersModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Categories">
+    <Key>
+      <PropertyRef Name="CategoryId" />
+    </Key>
+    <Property Name="CategoryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CategoryName" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Orders" Relationship="Self.FK__Orders__Order_Ca__6E01572D" FromRole="Categories" ToRole="Orders" />
+  </EntityType>
+  <EntityType Name="Departments">
+    <Key>
+      <PropertyRef Name="DepId" />
+    </Key>
+    <Property Name="DepId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DepName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Employees" Relationship="Self.FK__Employees__Emp_D__693CA210" FromRole="Departments" ToRole="Employees" />
+  </EntityType>
+  <EntityType Name="Employee_Order">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EmpId" Type="Int32" Nullable="false" />
+    <Property Name="OrderId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Employees" Relationship="Self.FK__Employee___EmpId__72C60C4A" FromRole="Employee_Order" ToRole="Employees" />
+    <NavigationProperty Name="Orders" Relationship="Self.FK__Employee___Order__73BA3083" FromRole="Employee_Order" ToRole="Orders" />
+  </EntityType>
+  <EntityType Name="Employees">
+    <Key>
+      <PropertyRef Name="EmpId" />
+    </Key>
+    <Property Name="EmpId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Emp_Name" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Emp_Surname" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Emp_Patronimyc" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="Emp_Email" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Emp_Phone" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Emp_Password" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Emp_DepId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Departments" Relationship="Self.FK__Employees__Emp_D__693CA210" FromRole="Employees" ToRole="Departments" />
+    <NavigationProperty Name="Employee_Order" Relationship="Self.FK__Employee___EmpId__72C60C4A" FromRole="Employees" ToRole="Employee_Order" />
+  </EntityType>
+  <EntityType Name="Orderers">
+    <Key>
+      <PropertyRef Name="OrdererId" />
+    </Key>
+    <Property Name="OrdererId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Orderer_Name" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Orderer_Surname" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Orderer_Patronimyc" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="Orderer_Phone" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Orderer_Email" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Orderer_Organization" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Orders" Relationship="Self.FK__Orders__Order_Or__6FE99F9F" FromRole="Orderers" ToRole="Orders" />
+    <Property Name="Orderer_Password" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Orders">
+    <Key>
+      <PropertyRef Name="OrderId" />
+    </Key>
+    <Property Name="OrderId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Order_CategoryId" Type="Int32" Nullable="false" />
+    <Property Name="Order_Wishs" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Order_DesignLink" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="Order_RepLink" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="Order_Status" Type="Int32" Nullable="false" />
+    <Property Name="Order_OrdererId" Type="Int32" Nullable="false" />
+    <Property Name="Order_Price" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Categories" Relationship="Self.FK__Orders__Order_Ca__6E01572D" FromRole="Orders" ToRole="Categories" />
+    <NavigationProperty Name="Employee_Order" Relationship="Self.FK__Employee___Order__73BA3083" FromRole="Orders" ToRole="Employee_Order" />
+    <NavigationProperty Name="Orderers" Relationship="Self.FK__Orders__Order_Or__6FE99F9F" FromRole="Orders" ToRole="Orderers" />
+    <NavigationProperty Name="OrderStatus" Relationship="Self.FK__Orders__Order_St__6EF57B66" FromRole="Orders" ToRole="OrderStatus" />
+  </EntityType>
+  <EntityType Name="OrderStatus">
+    <Key>
+      <PropertyRef Name="StatusId" />
+    </Key>
+    <Property Name="StatusId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Status_Name" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Orders" Relationship="Self.FK__Orders__Order_St__6EF57B66" FromRole="OrderStatus" ToRole="Orders" />
+  </EntityType>
+  <Association Name="FK__Orders__Order_Ca__6E01572D">
+    <End Role="Categories" Type="Self.Categories" Multiplicity="1" />
+    <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Categories">
+        <PropertyRef Name="CategoryId" />
+      </Principal>
+      <Dependent Role="Orders">
+        <PropertyRef Name="Order_CategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Employees__Emp_D__693CA210">
+    <End Role="Departments" Type="Self.Departments" Multiplicity="1" />
+    <End Role="Employees" Type="Self.Employees" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Departments">
+        <PropertyRef Name="DepId" />
+      </Principal>
+      <Dependent Role="Employees">
+        <PropertyRef Name="Emp_DepId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Employee___EmpId__72C60C4A">
+    <End Role="Employees" Type="Self.Employees" Multiplicity="1" />
+    <End Role="Employee_Order" Type="Self.Employee_Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employees">
+        <PropertyRef Name="EmpId" />
+      </Principal>
+      <Dependent Role="Employee_Order">
+        <PropertyRef Name="EmpId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Employee___Order__73BA3083">
+    <End Role="Orders" Type="Self.Orders" Multiplicity="1" />
+    <End Role="Employee_Order" Type="Self.Employee_Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Orders">
+        <PropertyRef Name="OrderId" />
+      </Principal>
+      <Dependent Role="Employee_Order">
+        <PropertyRef Name="OrderId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Orders__Order_Or__6FE99F9F">
+    <End Role="Orderers" Type="Self.Orderers" Multiplicity="1" />
+    <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Orderers">
+        <PropertyRef Name="OrdererId" />
+      </Principal>
+      <Dependent Role="Orders">
+        <PropertyRef Name="Order_OrdererId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Orders__Order_St__6EF57B66">
+    <End Role="OrderStatus" Type="Self.OrderStatus" Multiplicity="1" />
+    <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OrderStatus">
+        <PropertyRef Name="StatusId" />
+      </Principal>
+      <Dependent Role="Orders">
+        <PropertyRef Name="Order_Status" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="DbOrdersEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Categories" EntityType="Self.Categories" />
+    <EntitySet Name="Departments" EntityType="Self.Departments" />
+    <EntitySet Name="Employee_Order" EntityType="Self.Employee_Order" />
+    <EntitySet Name="Employees" EntityType="Self.Employees" />
+    <EntitySet Name="Orderers" EntityType="Self.Orderers" />
+    <EntitySet Name="Orders" EntityType="Self.Orders" />
+    <EntitySet Name="OrderStatus" EntityType="Self.OrderStatus" />
+    <AssociationSet Name="FK__Orders__Order_Ca__6E01572D" Association="Self.FK__Orders__Order_Ca__6E01572D">
+      <End Role="Categories" EntitySet="Categories" />
+      <End Role="Orders" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Employees__Emp_D__693CA210" Association="Self.FK__Employees__Emp_D__693CA210">
+      <End Role="Departments" EntitySet="Departments" />
+      <End Role="Employees" EntitySet="Employees" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Employee___EmpId__72C60C4A" Association="Self.FK__Employee___EmpId__72C60C4A">
+      <End Role="Employees" EntitySet="Employees" />
+      <End Role="Employee_Order" EntitySet="Employee_Order" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Employee___Order__73BA3083" Association="Self.FK__Employee___Order__73BA3083">
+      <End Role="Orders" EntitySet="Orders" />
+      <End Role="Employee_Order" EntitySet="Employee_Order" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Orders__Order_Or__6FE99F9F" Association="Self.FK__Orders__Order_Or__6FE99F9F">
+      <End Role="Orderers" EntitySet="Orderers" />
+      <End Role="Orders" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Orders__Order_St__6EF57B66" Association="Self.FK__Orders__Order_St__6EF57B66">
+      <End Role="OrderStatus" EntitySet="OrderStatus" />
+      <End Role="Orders" EntitySet="Orders" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

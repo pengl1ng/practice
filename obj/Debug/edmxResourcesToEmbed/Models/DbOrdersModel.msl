@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище DbOrdersModelContainer" CdmEntityContainer="DbOrdersEntities">
+    <EntitySetMapping Name="Categories">
+      <EntityTypeMapping TypeName="DbOrdersModel.Categories">
+        <MappingFragment StoreEntitySet="Categories">
+          <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+          <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Departments">
+      <EntityTypeMapping TypeName="DbOrdersModel.Departments">
+        <MappingFragment StoreEntitySet="Departments">
+          <ScalarProperty Name="DepId" ColumnName="DepId" />
+          <ScalarProperty Name="DepName" ColumnName="DepName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Employee_Order">
+      <EntityTypeMapping TypeName="DbOrdersModel.Employee_Order">
+        <MappingFragment StoreEntitySet="Employee_Order">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="EmpId" ColumnName="EmpId" />
+          <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Employees">
+      <EntityTypeMapping TypeName="DbOrdersModel.Employees">
+        <MappingFragment StoreEntitySet="Employees">
+          <ScalarProperty Name="EmpId" ColumnName="EmpId" />
+          <ScalarProperty Name="Emp_Name" ColumnName="Emp_Name" />
+          <ScalarProperty Name="Emp_Surname" ColumnName="Emp_Surname" />
+          <ScalarProperty Name="Emp_Patronimyc" ColumnName="Emp_Patronimyc" />
+          <ScalarProperty Name="Emp_Email" ColumnName="Emp_Email" />
+          <ScalarProperty Name="Emp_Phone" ColumnName="Emp_Phone" />
+          <ScalarProperty Name="Emp_Password" ColumnName="Emp_Password" />
+          <ScalarProperty Name="Emp_DepId" ColumnName="Emp_DepId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Orderers">
+      <EntityTypeMapping TypeName="DbOrdersModel.Orderers">
+        <MappingFragment StoreEntitySet="Orderers">
+          <ScalarProperty Name="Orderer_Password" ColumnName="Orderer_Password" />
+          <ScalarProperty Name="OrdererId" ColumnName="OrdererId" />
+          <ScalarProperty Name="Orderer_Name" ColumnName="Orderer_Name" />
+          <ScalarProperty Name="Orderer_Surname" ColumnName="Orderer_Surname" />
+          <ScalarProperty Name="Orderer_Patronimyc" ColumnName="Orderer_Patronimyc" />
+          <ScalarProperty Name="Orderer_Phone" ColumnName="Orderer_Phone" />
+          <ScalarProperty Name="Orderer_Email" ColumnName="Orderer_Email" />
+          <ScalarProperty Name="Orderer_Organization" ColumnName="Orderer_Organization" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Orders">
+      <EntityTypeMapping TypeName="DbOrdersModel.Orders">
+        <MappingFragment StoreEntitySet="Orders">
+          <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+          <ScalarProperty Name="Order_CategoryId" ColumnName="Order_CategoryId" />
+          <ScalarProperty Name="Order_Wishs" ColumnName="Order_Wishs" />
+          <ScalarProperty Name="Order_DesignLink" ColumnName="Order_DesignLink" />
+          <ScalarProperty Name="Order_RepLink" ColumnName="Order_RepLink" />
+          <ScalarProperty Name="Order_Status" ColumnName="Order_Status" />
+          <ScalarProperty Name="Order_OrdererId" ColumnName="Order_OrdererId" />
+          <ScalarProperty Name="Order_Price" ColumnName="Order_Price" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OrderStatus">
+      <EntityTypeMapping TypeName="DbOrdersModel.OrderStatus">
+        <MappingFragment StoreEntitySet="OrderStatus">
+          <ScalarProperty Name="StatusId" ColumnName="StatusId" />
+          <ScalarProperty Name="Status_Name" ColumnName="Status_Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

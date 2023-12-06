@@ -1,0 +1,176 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Хранилище DbOrdersModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Categories">
+    <Key>
+      <PropertyRef Name="CategoryId" />
+    </Key>
+    <Property Name="CategoryId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CategoryName" Type="varchar" MaxLength="40" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Departments">
+    <Key>
+      <PropertyRef Name="DepId" />
+    </Key>
+    <Property Name="DepId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DepName" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Employee_Order">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EmpId" Type="int" Nullable="false" />
+    <Property Name="OrderId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Employees">
+    <Key>
+      <PropertyRef Name="EmpId" />
+    </Key>
+    <Property Name="EmpId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Emp_Name" Type="varchar" MaxLength="40" Nullable="false" />
+    <Property Name="Emp_Surname" Type="varchar" MaxLength="40" Nullable="false" />
+    <Property Name="Emp_Patronimyc" Type="varchar" MaxLength="40" />
+    <Property Name="Emp_Email" Type="varchar" MaxLength="40" Nullable="false" />
+    <Property Name="Emp_Phone" Type="varchar" MaxLength="40" Nullable="false" />
+    <Property Name="Emp_Password" Type="varchar" MaxLength="40" Nullable="false" />
+    <Property Name="Emp_DepId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Orderers">
+    <Key>
+      <PropertyRef Name="OrdererId" />
+    </Key>
+    <Property Name="OrdererId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Orderer_Name" Type="varchar" MaxLength="40" Nullable="false" />
+    <Property Name="Orderer_Surname" Type="varchar" MaxLength="40" Nullable="false" />
+    <Property Name="Orderer_Patronimyc" Type="varchar" MaxLength="40" />
+    <Property Name="Orderer_Phone" Type="varchar" MaxLength="40" Nullable="false" />
+    <Property Name="Orderer_Email" Type="varchar" MaxLength="40" Nullable="false" />
+    <Property Name="Orderer_Password" Type="varchar" MaxLength="40" Nullable="false" />
+    <Property Name="Orderer_Organization" Type="varchar" MaxLength="40" />
+  </EntityType>
+  <EntityType Name="Orders">
+    <Key>
+      <PropertyRef Name="OrderId" />
+    </Key>
+    <Property Name="OrderId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Order_CategoryId" Type="int" Nullable="false" />
+    <Property Name="Order_Wishs" Type="text" />
+    <Property Name="Order_DesignLink" Type="varchar" MaxLength="40" />
+    <Property Name="Order_RepLink" Type="varchar" MaxLength="40" />
+    <Property Name="Order_Status" Type="int" Nullable="false" />
+    <Property Name="Order_OrdererId" Type="int" Nullable="false" />
+    <Property Name="Order_Price" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="OrderStatus">
+    <Key>
+      <PropertyRef Name="StatusId" />
+    </Key>
+    <Property Name="StatusId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Status_Name" Type="varchar" MaxLength="40" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__Employee___EmpId__7D439ABD">
+    <End Role="Employees" Type="Self.Employees" Multiplicity="1" />
+    <End Role="Employee_Order" Type="Self.Employee_Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employees">
+        <PropertyRef Name="EmpId" />
+      </Principal>
+      <Dependent Role="Employee_Order">
+        <PropertyRef Name="EmpId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Employee___Order__7E37BEF6">
+    <End Role="Orders" Type="Self.Orders" Multiplicity="1" />
+    <End Role="Employee_Order" Type="Self.Employee_Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Orders">
+        <PropertyRef Name="OrderId" />
+      </Principal>
+      <Dependent Role="Employee_Order">
+        <PropertyRef Name="OrderId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Employees__Emp_D__693CA210">
+    <End Role="Departments" Type="Self.Departments" Multiplicity="1" />
+    <End Role="Employees" Type="Self.Employees" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Departments">
+        <PropertyRef Name="DepId" />
+      </Principal>
+      <Dependent Role="Employees">
+        <PropertyRef Name="Emp_DepId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Orders__Order_Ca__787EE5A0">
+    <End Role="Categories" Type="Self.Categories" Multiplicity="1" />
+    <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Categories">
+        <PropertyRef Name="CategoryId" />
+      </Principal>
+      <Dependent Role="Orders">
+        <PropertyRef Name="Order_CategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Orders__Order_Or__7A672E12">
+    <End Role="Orderers" Type="Self.Orderers" Multiplicity="1" />
+    <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Orderers">
+        <PropertyRef Name="OrdererId" />
+      </Principal>
+      <Dependent Role="Orders">
+        <PropertyRef Name="Order_OrdererId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Orders__Order_St__797309D9">
+    <End Role="OrderStatus" Type="Self.OrderStatus" Multiplicity="1" />
+    <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OrderStatus">
+        <PropertyRef Name="StatusId" />
+      </Principal>
+      <Dependent Role="Orders">
+        <PropertyRef Name="Order_Status" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Хранилище DbOrdersModelContainer">
+    <EntitySet Name="Categories" EntityType="Self.Categories" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Departments" EntityType="Self.Departments" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Employee_Order" EntityType="Self.Employee_Order" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Employees" EntityType="Self.Employees" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Orderers" EntityType="Self.Orderers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Orders" EntityType="Self.Orders" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OrderStatus" EntityType="Self.OrderStatus" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Employee___EmpId__7D439ABD" Association="Self.FK__Employee___EmpId__7D439ABD">
+      <End Role="Employees" EntitySet="Employees" />
+      <End Role="Employee_Order" EntitySet="Employee_Order" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Employee___Order__7E37BEF6" Association="Self.FK__Employee___Order__7E37BEF6">
+      <End Role="Orders" EntitySet="Orders" />
+      <End Role="Employee_Order" EntitySet="Employee_Order" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Employees__Emp_D__693CA210" Association="Self.FK__Employees__Emp_D__693CA210">
+      <End Role="Departments" EntitySet="Departments" />
+      <End Role="Employees" EntitySet="Employees" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Orders__Order_Ca__787EE5A0" Association="Self.FK__Orders__Order_Ca__787EE5A0">
+      <End Role="Categories" EntitySet="Categories" />
+      <End Role="Orders" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Orders__Order_Or__7A672E12" Association="Self.FK__Orders__Order_Or__7A672E12">
+      <End Role="Orderers" EntitySet="Orderers" />
+      <End Role="Orders" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Orders__Order_St__797309D9" Association="Self.FK__Orders__Order_St__797309D9">
+      <End Role="OrderStatus" EntitySet="OrderStatus" />
+      <End Role="Orders" EntitySet="Orders" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

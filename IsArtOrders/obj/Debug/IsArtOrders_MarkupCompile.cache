@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-D:\ProjectsC#\IsArtOrders\obj\Debug\
+D:\ProjectsC#\practice\IsArtOrders\obj\Debug\
 IsArtOrders
 none
 false
 DEBUG;TRACE
-D:\ProjectsC#\IsArtOrders\App.xaml
-7-1081743789
+D:\ProjectsC#\practice\IsArtOrders\App.xaml
+81492189607
 2693123389
-222070285649
-18-1659007543
-MainWindow.xaml;Pages\AuthorizationPage.xaml;Pages\ClientPage.xaml;Pages\CreateOrderPage.xaml;Pages\EmployeePage.xaml;Pages\ManagerPage.xaml;Pages\RegistrationPage.xaml;
+23-1037125527
+18-1187217299
+MainWindow.xaml;Pages\AuthorizationPage.xaml;Pages\ClientOrders.xaml;Pages\ClientPage.xaml;Pages\CreateOrderPage.xaml;Pages\EmployeePage.xaml;Pages\ManagerPage.xaml;Pages\RegistrationPage.xaml;
 
 False
 

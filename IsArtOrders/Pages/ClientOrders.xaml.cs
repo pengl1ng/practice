@@ -1,4 +1,5 @@
-﻿using System;
+﻿using IsArtOrders.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,11 @@ namespace IsArtOrders.Pages
     /// </summary>
     public partial class ClientOrders : Page
     {
-        public ClientOrders()
+        DbOrdersEntities context = DbOrdersEntities.GetContext();
+        public ClientOrders(Orderers user)
         {
             InitializeComponent();
+            lvOrders.ItemsSource = context.Orders.Where(x => x.Order_OrdererId == user.OrdererId).ToList();
         }
     }
 }

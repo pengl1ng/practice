@@ -38,7 +38,7 @@ namespace IsArtOrders.Pages
 
         private void btnMyOrders_Click(object sender, RoutedEventArgs e)
         {
-
+            AppHelper.ClientFrame.Navigate(new ClientOrders(user));
         }
 
         private void btnCreateOrder_Click(object sender, RoutedEventArgs e)

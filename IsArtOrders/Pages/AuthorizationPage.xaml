@@ -10,21 +10,23 @@
 
     <Grid>
         <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <TextBlock Text="Авторизация" TextAlignment="Center" Margin="5"/>
+            <TextBlock Text="Авторизация" TextAlignment="Center" Margin="5"
+                       Foreground="#F0ECE5"/>
             <StackPanel Orientation="Horizontal" Margin="5">
-                <TextBlock Text="E-mail" Width="75" Margin="5"/>
-                <TextBox x:Name="tboxEmail" Width="150" Margin="5"/>
+                <TextBlock Text="E-mail" Style="{StaticResource tblockMain}"/>
+                <TextBox x:Name="tboxEmail" Style="{StaticResource tboxMain}"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="5">
-                <TextBlock Text="Пароль" Width="75" Margin="5"/>
-                <PasswordBox x:Name="passBox" Width="150" Margin="5"/>
+                <TextBlock Text="Пароль" Style="{StaticResource tblockMain}"/>
+                <PasswordBox x:Name="passBox" Style="{StaticResource pboxMain}"/>
             </StackPanel>
             <Button x:Name="btnAuth" Content="Войти" 
-                    Click="btnAuth_Click" Margin="5"/>
+                    Click="btnAuth_Click" Style="{StaticResource buttonMain}"/>
             <TextBlock Text="Не зарегистрированы?" Margin="5"
-                       TextAlignment="Center"/>
+                       TextAlignment="Center"
+                       Foreground="#F0ECE5"/>
             <Button x:Name="btnToReg" Content="Регистрация"
-                    Margin="5" Click="btnToReg_Click"/>
+                    Click="btnToReg_Click" Style="{StaticResource buttonMain}"/>
         </StackPanel>
     </Grid>
 </Page>

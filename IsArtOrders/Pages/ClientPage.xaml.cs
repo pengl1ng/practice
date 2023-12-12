@@ -48,7 +48,7 @@ namespace IsArtOrders.Pages
 
         private void btnChangeData_Click(object sender, RoutedEventArgs e)
         {
-
+            AppHelper.ClientFrame.Navigate(new UserSettings(user));
         }
     }
 }

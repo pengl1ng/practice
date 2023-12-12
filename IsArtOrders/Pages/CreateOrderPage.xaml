@@ -15,33 +15,35 @@
                     x:Name="spCreateOrder">
             <TextBlock Text="Создание заказа"
                        TextAlignment="Center"
-                       Margin="5"/>
+                       Margin="5"
+                       Foreground="#F0ECE5"/>
             <StackPanel Orientation="Horizontal" Margin="5">
-                <TextBlock Text="Категория" Width="75" Margin="5"/>
+                <TextBlock Text="Категория" Width="75" Style="{StaticResource tblockMain}"/>
                 <ComboBox x:Name="cboxCategory" Width="150" Margin="5"
                           SelectedValue="{Binding Order_CategoryId}"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal"
                         Margin="5">
-                <TextBlock Text="Пожелания" Width="75" Margin="5"/>
+                <TextBlock Text="Пожелания" Width="75" Style="{StaticResource tblockMain}"/>
                 <TextBox x:Name="tboxWishs" Width="150"
-                         Height="100" Margin="5"
+                         Style="{StaticResource tboxMain}"
+                         Height="100"
                          Text="{Binding Order_Wishs}"
                          TextWrapping="Wrap"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal"
                         Margin="5">
                 <TextBlock Text="Ссылка на дизайн в Figma (если имеется)" Width="75" 
-                           Margin="5" TextWrapping="Wrap"/>
+                           Style="{StaticResource tblockMain}" TextWrapping="Wrap"/>
                 <TextBox x:Name="tboxFigma" Width="150"
-                         Height="75" Margin="5"
+                         Height="75" Style="{StaticResource tboxMain}"
                          Text="{Binding Order_DesignLink}"
                          TextWrapping="Wrap"/>
             </StackPanel>
             <TextBlock Text="Стоимость будет рассчитана после того, как заказ будет принят"
-                       TextWrapping="Wrap" Margin="5" Width="200"/>
+                       TextWrapping="Wrap" Margin="5" Width="200" Foreground="#F0ECE5"/>
             <Button x:Name="btnPutOrder" Content="Отправить заказ"
-                    Margin="5" Click="btnPutOrder_Click"/>
+                    Click="btnPutOrder_Click" Style="{StaticResource buttonMain}"/>
         </StackPanel>
     </Grid>
 </Page>

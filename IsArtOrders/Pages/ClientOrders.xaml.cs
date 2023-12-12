@@ -25,7 +25,14 @@ namespace IsArtOrders.Pages
         public ClientOrders(Orderers user)
         {
             InitializeComponent();
-            lvOrders.ItemsSource = context.Orders.Where(x => x.Order_OrdererId == user.OrdererId).ToList();
+            try
+            {
+                lvOrders.ItemsSource = context.Orders.Where(x => x.Order_OrdererId == user.OrdererId).ToList();
+            }
+            catch (Exception ex) 
+            {
+                MessageBox.Show(ex.Message, "Ошибка");
+            }
         }
     }
 }

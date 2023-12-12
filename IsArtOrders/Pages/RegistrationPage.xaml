@@ -10,46 +10,46 @@
 
     <Grid>
         <StackPanel x:Name="spReg" Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
-            <TextBlock Text="Регистрация" TextAlignment="Center"/>
+            <TextBlock Text="Регистрация" TextAlignment="Center" Foreground="#F0ECE5"/>
             <StackPanel Orientation="Horizontal" Margin="5">
-                <TextBlock Text="Имя" Width="75" Margin="5"/>
-                <TextBox x:Name="tboxName" Width="150" Margin="5"
+                <TextBlock Text="Имя" Style="{StaticResource tblockMain}"/>
+                <TextBox x:Name="tboxName" Style="{StaticResource tboxMain}"
                          Text="{Binding Orderer_Name}"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="5">
-                <TextBlock Text="Фамилмия" Width="75" Margin="5"/>
-                <TextBox x:Name="tboxSurname" Width="150" Margin="5"
+                <TextBlock Text="Фамилмия" Style="{StaticResource tblockMain}"/>
+                <TextBox x:Name="tboxSurname" Style="{StaticResource tboxMain}"
                          Text="{Binding Orderer_Surname}"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="5">
-                <TextBlock Text="Отчество" Width="75" Margin="5"/>
-                <TextBox x:Name="tboxPatronimyc" Width="150" Margin="5"
+                <TextBlock Text="Отчество" Style="{StaticResource tblockMain}"/>
+                <TextBox x:Name="tboxPatronimyc" Style="{StaticResource tboxMain}"
                          Text="{Binding Orderer_Patronimyc}"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="5">
-                <TextBlock Text="E-mail" Width="75" Margin="5"/>
-                <TextBox x:Name="tboxEmail" Width="150" Margin="5"
+                <TextBlock Text="E-mail" Style="{StaticResource tblockMain}"/>
+                <TextBox x:Name="tboxEmail" Style="{StaticResource tboxMain}"
                          Text="{Binding Orderer_Email}"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="5">
-                <TextBlock Text="Телефон" Width="75" Margin="5"/>
-                <TextBox x:Name="tboxPhone" Width="150" Margin="5"
+                <TextBlock Text="Телефон" Style="{StaticResource tblockMain}"/>
+                <TextBox x:Name="tboxPhone" Style="{StaticResource tboxMain}"
                          Text="{Binding Orderer_Phone}"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="5">
-                <TextBlock Text="Пароль" Width="75" Margin="5"/>
-                <TextBox x:Name="pbox" Width="150" Margin="5"
+                <TextBlock Text="Пароль" Style="{StaticResource tblockMain}"/>
+                <TextBox x:Name="pbox" Style="{StaticResource tboxMain}"
                          Text="{Binding Orderer_Password}"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="5">
-                <TextBlock Text="Организация" Width="75" Margin="5"/>
-                <TextBox x:Name="tboxOrg" Width="150" Margin="5"
+                <TextBlock Text="Организация" Style="{StaticResource tblockMain}"/>
+                <TextBox x:Name="tboxOrg" Style="{StaticResource tboxMain}"
                          Text="{Binding Orderer_Organization}"/>
             </StackPanel>
             <Button x:Name="btnReg" Content="Зарегистрироваться"
-                    Click="btnReg_Click" Margin="5"/>
+                    Click="btnReg_Click" Style="{StaticResource buttonMain}"/>
             <Button x:Name="btnToAuth" Content="К авторизации"
-                    Click="btnToAuth_Click" Margin="5"/>
+                    Click="btnToAuth_Click" Style="{StaticResource buttonMain}"/>
         </StackPanel>
     </Grid>
 </Page>

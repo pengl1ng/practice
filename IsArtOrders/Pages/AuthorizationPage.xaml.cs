@@ -29,22 +29,10 @@ namespace IsArtOrders.Pages
                         MessageBox.Show("Заказчик авторизован");
                         AppHelper.MainFrame.Navigate(new ClientPage(user));
                     }
-                    else
-                    {
-                        var emp = DbOrdersEntities.GetContext().Employees.FirstOrDefault(x => x.Emp_Email == tboxEmail.Text && x.Emp_Password == passBox.Password);
-                        if (emp != null)
-                        {
-                            MessageBox.Show("Сотрудник авторизован");
-                        }
-                        else
-                        {
-                            MessageBox.Show("Такого пользователя или сотрудника не существует");
-                        }
-                    }
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message);
+                    MessageBox.Show(ex.Message, "Ошибка");
                 }
             }
             else

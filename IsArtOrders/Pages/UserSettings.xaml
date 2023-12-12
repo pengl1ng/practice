@@ -1,0 +1,54 @@
+﻿<Page x:Class="IsArtOrders.Pages.UserSettings"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:IsArtOrders.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="UserSettings">
+
+    <Grid>
+        <StackPanel x:Name="spEdit" Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <TextBlock Text="Редактирование данных" TextAlignment="Center"
+                       Foreground="#F0ECE5"/>
+            <StackPanel Orientation="Horizontal" Margin="5">
+                <TextBlock Text="Имя" Width="75" Style="{StaticResource tblockMain}"/>
+                <TextBox x:Name="tboxName" Width="150" Style="{StaticResource tboxMain}"
+                         Text="{Binding Orderer_Name}"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="5">
+                <TextBlock Text="Фамилмия" Width="75" Style="{StaticResource tblockMain}"/>
+                <TextBox x:Name="tboxSurname" Width="150" Style="{StaticResource tboxMain}"
+                         Text="{Binding Orderer_Surname}"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="5">
+                <TextBlock Text="Отчество" Width="75" Style="{StaticResource tblockMain}"/>
+                <TextBox x:Name="tboxPatronimyc" Width="150" Style="{StaticResource tboxMain}"
+                         Text="{Binding Orderer_Patronimyc}"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="5">
+                <TextBlock Text="E-mail" Width="75" Style="{StaticResource tblockMain}"/>
+                <TextBox x:Name="tboxEmail" Width="150" Style="{StaticResource tboxMain}"
+                         Text="{Binding Orderer_Email}"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="5">
+                <TextBlock Text="Телефон" Width="75" Style="{StaticResource tblockMain}"/>
+                <TextBox x:Name="tboxPhone" Width="150" Style="{StaticResource tboxMain}"
+                         Text="{Binding Orderer_Phone}"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="5">
+                <TextBlock Text="Пароль" Width="75" Style="{StaticResource tblockMain}"/>
+                <TextBox x:Name="pbox" Width="150" Style="{StaticResource tboxMain}"
+                         Text="{Binding Orderer_Password}"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="5">
+                <TextBlock Text="Организация" Width="75" Style="{StaticResource tblockMain}"/>
+                <TextBox x:Name="tboxOrg" Width="150" Style="{StaticResource tboxMain}"
+                         Text="{Binding Orderer_Organization}"/>
+            </StackPanel>
+            <Button x:Name="btnSave" Content="Сохранить"
+                    Click="btnSave_Click" Style="{StaticResource buttonMain}"/>
+        </StackPanel>
+    </Grid>
+</Page>
